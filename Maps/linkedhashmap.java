@@ -1,4 +1,6 @@
 // Importing required classes
+package Maps;
+
 import java.util.*;
 
 // Main class
