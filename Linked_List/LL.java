@@ -73,11 +73,44 @@ public class LL {
 
     public void deletelast(){
         Node temp = head;
-        if(temp.next != tail){
+        while(temp.next.next != null){
             temp = temp.next;
         }
         tail = temp;
         tail.next = null;
+    }
+
+    public void find(int value){
+        Node temp = head;
+        int pos = 1;
+        for (int i = 0; i < size; i++) {
+            if(temp.value == value){
+                System.out.println("The element is at position "+ pos);
+                return;
+            }
+            else{
+                temp = temp.next;
+                pos++;
+            }
+        }
+        System.out.println("Not found");
+    }
+    public void delete(int index){
+        if(index == 1){
+            deletefirst();
+        }
+        if(index == size-1)
+            deletelast();
+        Node prev = get(index -1);
+        prev.next = prev.next.next;
+    }
+
+    public Node get(int index){
+            Node node = head;
+        for (int i = 0; i < index; i++) {
+            node = node.next;
+        }
+        return node;
     }
     public void display(){
         Node temp = head;
